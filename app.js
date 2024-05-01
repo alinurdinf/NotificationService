@@ -5,14 +5,12 @@ const app = express();
 const indexRouter = require('./routes/index');
 const cors = require('cors');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true })); 
-app.use(cors()); 
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors()); 
 
 // Routes
 app.use('/', indexRouter);
